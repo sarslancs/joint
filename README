@@ -42,13 +42,13 @@ JOINT SPECTRAL DECOMPOSITION FOR CORTICAL PARCELLATION
 Developed in MATLAB R2014a on Ubuntu 14.04
 
 Prerequisites:
-MATLAB GIfTI library @ http://www.artefact.tk/software/matlab/gifti/
-Connectome Workbench @ http://www.humanconnectome.org/software/get-connectome-workbench.html
+(MUST) Connectome Workbench 
+       http://www.humanconnectome.org/software/get-connectome-workbench.html
 
 Dataset:
 This version has been tested on the Human Connectome Project (HCP) datasets. 
 The code has a deep dependency with the HCP data structures. However, it can 
-also be adapted to any other dataset, by following the hints throughout the
+also be adapted to any other dataset, by following the steps throughout the
 codes. 
 
 If you would like to use the HCP data, it can be downloaded from 
