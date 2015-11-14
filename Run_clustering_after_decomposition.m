@@ -5,9 +5,8 @@
 % replaced by any other, as kmeans has its own limitations.
 %% Set parameters
 hem             = 'L'; % Which hemisphere?
-nVertices       = 29696; % Number of cortical vertices
+nVertices       = 29696; % Num of cortical vertices, must be known a priori
 subjects        = 1:1:20; % Subject numbers of the first set;
-kMax            = 200; % Number of eigenvectors that will be kept for clustering
 saveOutput      = 1; % Save the output matrix?
 nSucjects       = length(subjects); % Number of total subjects
 C               = 50; % Number of parcels
@@ -35,7 +34,7 @@ if clusteringAlgo == 1
     [ groupParcels, ~ ] = majority_voting_on_sets( singleParcelSet, nVertices );
 else
     % Insert here your favourite clustering method. I would suggest you
-    % might like the multiscale ncut implementation based on discretization
+    % might use the multiscale ncut implementation based on discretization
     % @ www.timotheecour.com/software/ncut_multiscale/ncut_multiscale.html
     % Discretization may have major advantages over k-means, it is faster
     % and less sensitive to initilazition. But expect to have less  
