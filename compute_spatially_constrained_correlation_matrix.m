@@ -2,7 +2,7 @@ function [ W, dtseries ] = compute_spatially_constrained_correlation_matrix( sub
 %COMPUTE_SPATIALLY_CONSTRAINED_CORRELATION_MATRIX Computes the correlation
 %   matrix. 
 %   For a given SUBJECTID and HEMisphere, the spatially constrained
-%   affinity (adjacency) matrix W is computed by correlating timeseries. 
+%   affinity (adjacency) matrix W is computed by Pearson's correlation. 
 %   A constraint is applied and correlations are computed for only 
 %   spatially adjacent nodes. This ensures spatial contiguity in clusters 
 %   and reduces computational overhead. The set of timeseries is returned  
@@ -13,7 +13,8 @@ readFrom = ['/vol/vipdata/data/HCP100/' subjectID ...
             '/structural/MNINonLinear/fsaverage_LR32k/'];
 % Please set this to your local directory from which the files will be read.
 
-% Determine the number of vertices across the hemisphere
+% Determine the number of vertices across the hemisphere, This is known
+% beforehand for the HCP data.
 if hem == 'L'
     numVertices = 29696;
 else
