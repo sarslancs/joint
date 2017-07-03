@@ -8,7 +8,7 @@ hem             = 'L'; % Which hemisphere?
 nVertices       = 29696; % Num of cortical vertices, must be known a priori
 subjects        = 1:1:20; % Subject numbers of the first set;
 saveOutput      = 1; % Save the output matrix?
-nSucjects       = length(subjects); % Number of total subjects
+nSubjects       = length(subjects); % Number of total subjects
 C               = 50; % Number of parcels
 kMeansReplicate = 10; % Kmeans replicates 
 kMeansMaxIter   = 500; % Kmeans max iteration
@@ -30,7 +30,7 @@ eigVectorsSorted(:,1) = []; % Remove the first eigenvector, which provides
 if clusteringAlgo == 1
     [ labels, ~ ] =  kmeans(eigVectorsSorted(:,1:C), C, 'Display','final',... 
                          'Replicates', kMeansReplicate, 'MaxIter', kMeansMaxIter);
-    singleParcelSet = break_down_parcels_into_sets( labels, nSucjects, nVertices );
+    singleParcelSet = break_down_parcels_into_sets( labels, nSubjects, nVertices );
     [ groupParcels, ~ ] = majority_voting_on_sets( singleParcelSet, nVertices );
 else
     % Insert here your favourite clustering method. I would suggest you
